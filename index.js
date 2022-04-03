@@ -21,7 +21,9 @@ app.use(cookieSession(
         name: "session",
         keys: [process.env.COOKIE_SECRET],
         maxAge: 24 * 60 * 1000,
-        httpOnly: true
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none'
     }
 ))
 
@@ -34,7 +36,7 @@ app.use(passport.session())
 
 // have browser set cookies from the origin
 app.use(cors({
-    origin: ['http://localhost:3000','https://dreamy-journal.netlify.app'],
+    origin: ['http://localhost:3000', 'https://dreamy-journal.netlify.app'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
 }))

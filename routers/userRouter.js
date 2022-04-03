@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
                     return res
                         .status(200)
                         .setHeader('Content-Type', 'application/json')
-                        .cookie("jwt", token, { httpOnly: true })
+                        .cookie("jwt", token, { httpOnly: true, secure: true, sameSite: 'none' })
                         .json({ success: true, status: 'Registration Successful!' });
                 });
             })
@@ -54,7 +54,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 
     return res
         .status(200)
-        .cookie("jwt", token, { httpOnly: true })
+        .cookie("jwt", token, { httpOnly: true, secure: true, sameSite: 'none' })
         .setHeader('Content-Type', 'application/json')
         .json({ success: true, status: 'You are successfully logged in!' })
 });
@@ -107,7 +107,8 @@ router.get('/login/success', (req, res) => {
         const token = auth.getToken({ _id: req.user._id });
         return res
             .status(200)
-            .cookie("jwt", token, { httpOnly: true })
+            .cookie("jwt",
+                token, { httpOnly: true, secure: true, sameSite: 'none' })
             .json({
                 success: true,
                 status: 'you are logged in!',

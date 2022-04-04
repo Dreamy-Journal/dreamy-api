@@ -20,11 +20,10 @@ app.use(cookieSession(
     {
         name: "session",
         keys: [process.env.COOKIE_SECRET],
-        // domain:'https://dreamy-journal.netlify.app',
         maxAge: 24 * 60 * 1000,
         httpOnly: true,
-        // secure: true,
-        // sameSite: 'none'
+        secure: true,
+        sameSite: 'none'
     }
 ))
 

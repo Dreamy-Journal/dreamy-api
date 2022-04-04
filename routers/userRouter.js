@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
                     return res
                         .status(200)
                         .setHeader('Content-Type', 'application/json')
-                        .cookie("jwt", token, { httpOnly: true, secure: true, sameSite: 'none', domain: 'https://dreamy-journal.netlify.app' })
+                        .cookie("jwt", token, { httpOnly: true, secure: true, sameSite: 'none' })
                         .json({ success: true, status: 'Registration Successful!' });
                 });
             })

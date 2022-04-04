@@ -61,7 +61,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 });
 
 //** LOGOUT
-router.get('/logout', auth.verifyUser, (req, res) => {
+router.get('/logout', (req, res) => {
 
     return res
         .clearCookie('jwt')

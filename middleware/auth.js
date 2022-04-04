@@ -64,6 +64,7 @@ exports.googlePassport = passport.use(new GoogleStrategy({
     callbackURL: "https://dreamy-journal.herokuapp.com/auth/google/callback"
 },
     async function (accessToken, refreshToken, profile, done) {
+        console.log(profile)
         try {
             const userGmail = profile.emails[0].value;
             const googleId = profile.id

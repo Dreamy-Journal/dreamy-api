@@ -124,7 +124,7 @@ router.get('/login/success', (req, res) => {
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
 
 router.get('/google/callback', passport.authenticate('google', {
-    successRedirect: 'https://www.espn.com/',
+    successRedirect: CLIENT_URL,
     failureRedirect: '/login/failed'
 }))
 module.exports = router

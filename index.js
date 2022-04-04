@@ -14,6 +14,8 @@ dotenv.config();
 // server set up
 const app = express();
 
+app.set("trust proxy", 1);
+
 // set up cookie to use for google login, 1 day expiration,
 // httpOnly prevents client-side scripts from accessing data
 app.use(cookieSession(

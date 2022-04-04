@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
                     return res
                         .status(200)
                         .setHeader('Content-Type', 'application/json')
-                        .cookie("jwt", token, { httpOnly: true, secure: true, sameSite: 'none' })
+                        .cookie("jwt", token, { httpOnly: true, secure: true, sameSite: 'none', domain:'https://dreamy-journal.netlify.app' })
                         .json({ success: true, status: 'Registration Successful!' });
                 });
             })
@@ -55,7 +55,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 
     return res
         .status(200)
-        .cookie("jwt", token, { httpOnly: true, secure: true, sameSite: 'none' })
+        .cookie("jwt", token, { httpOnly: true, secure: true, sameSite: 'none', domain:'https://dreamy-journal.netlify.app', })
         .setHeader('Content-Type', 'application/json')
         .json({ success: true, status: 'You are successfully logged in!' })
 });
@@ -109,7 +109,7 @@ router.get('/login/success', (req, res) => {
         return res
             .status(200)
             .cookie("jwt",
-                token, { httpOnly: true, secure: true, sameSite: 'none' })
+                token, { httpOnly: true, secure: true, sameSite: 'none', domain:'https://dreamy-journal.netlify.app', })
             .json({
                 success: true,
                 status: 'you are logged in!',

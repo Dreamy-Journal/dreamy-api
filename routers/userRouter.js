@@ -64,9 +64,9 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 router.get('/logout', (req, res) => {
 
     return res
-        .clearCookie('jwt')
-        .clearCookie('session')
-        .clearCookie('session.sig')
+        .clearCookie('jwt', { httpOnly: true, secure: true, sameSite: 'none', })
+        .clearCookie('session', { httpOnly: true, secure: true, sameSite: 'none', })
+        .clearCookie('session.sig', { httpOnly: true, secure: true, sameSite: 'none', })
         .send()
 
 })

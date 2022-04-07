@@ -3,7 +3,6 @@ const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
 const auth = require('../middleware/auth')
-// const CLIENT_URL = "http://localhost:3000/";
 const CLIENT_URL = "https://dreamy-journal.netlify.app";
 
 //* auth/

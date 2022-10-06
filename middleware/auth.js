@@ -61,7 +61,7 @@ exports.verifyUser = passport.authenticate('jwt', { session: false });
 exports.googlePassport = passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://dreamy-journal.herokuapp.com/auth/google/callback"
+    callbackURL: "https://dreamy.onrender.com/auth/google/callback"
 },
     async function (accessToken, refreshToken, profile, done) {
         try {

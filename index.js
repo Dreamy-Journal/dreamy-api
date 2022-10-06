@@ -30,10 +30,10 @@ app.use(cookieSession(
 
 // * middleware
 app.use(logger('dev'));
-app.use(express.json())
-app.use(cookieParser())
+app.use(express.json());
+app.use(cookieParser());
 app.use(passport.initialize());
-app.use(passport.session())
+app.use(passport.session());
 
 // have browser set cookies from the origin
 app.use(cors({
